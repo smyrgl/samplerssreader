@@ -71,7 +71,7 @@
   UIBarButtonItem *spinnerButton = [[UIBarButtonItem alloc] initWithCustomView:activityView];
   UIBarButtonItem *currentButton = self.navigationItem.leftBarButtonItem;
   [self.navigationItem setLeftBarButtonItem:spinnerButton animated:YES];
-  typeof(self) weakSelf = self;
+  __weak typeof(self) weakSelf = self;
   [[TGGoogleFeedApiClient sharedClient] updateAllFeedsWithCompletion:^(BOOL success, NSError *error) {
     dispatch_async(dispatch_get_main_queue(), ^{
       [activityView stopAnimating];

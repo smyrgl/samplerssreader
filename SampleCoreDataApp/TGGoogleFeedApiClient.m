@@ -77,30 +77,32 @@
 }
 
 - (void)updateAllFeedsWithCompletion:(void(^)(BOOL success, NSError *error))block {
-  self.syncProgress = [NSProgress progressWithTotalUnitCount:[Feed MR_countOfEntities]];
-  self.syncCompletion = block;
-  self.syncError = nil;
-  [self.syncProgress addObserver:self
-                      forKeyPath:@"completedUnitCount"
-                         options:NSKeyValueObservingOptionInitial
-                         context:NULL];
   __weak typeof(self) weakSelf = self;
-  self.syncProgress.cancellationHandler = ^void(void){
-    weakSelf.syncCompletion(NO, weakSelf.syncError);
-  };
-  for (Feed *aFeed in [Feed MR_findAll]) {
-    [self.syncProgress becomeCurrentWithPendingUnitCount:1];
-    [aFeed updateFeedWithCompletion:^(BOOL success, NSError *error) {
-      if (success) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-          [weakSelf.syncProgress resignCurrent];
-        });
-      } else {
-        weakSelf.syncError = error;
-        [weakSelf.syncProgress cancel];
-      }
-    }];
-  }
+  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    weakSelf.syncProgress = [NSProgress progressWithTotalUnitCount:[Feed MR_countOfEntities]];
+    weakSelf.syncCompletion = block;
+    weakSelf.syncError = nil;
+    [weakSelf.syncProgress addObserver:self
+                        forKeyPath:@"completedUnitCount"
+                           options:NSKeyValueObservingOptionInitial
+                           context:NULL];
+    weakSelf.syncProgress.cancellationHandler = ^void(void){
+      weakSelf.syncCompletion(NO, weakSelf.syncError);
+    };
+    for (Feed *aFeed in [Feed MR_findAll]) {
+      [weakSelf.syncProgress becomeCurrentWithPendingUnitCount:1];
+      [aFeed updateFeedWithCompletion:^(BOOL success, NSError *error) {
+        if (success) {
+          dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.syncProgress resignCurrent];
+          });
+        } else {
+          weakSelf.syncError = error;
+          [weakSelf.syncProgress cancel];
+        }
+      }];
+    }
+  });
 }
 
 

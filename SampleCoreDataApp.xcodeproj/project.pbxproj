@@ -31,7 +31,7 @@
 		BBEB4439197F88B300B021EC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BBEB4437197F88B300B021EC /* InfoPlist.strings */; };
 		BBEB443B197F88B300B021EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBEB443A197F88B300B021EC /* main.m */; };
 		BBEB443F197F88B300B021EC /* TGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBEB443E197F88B300B021EC /* TGAppDelegate.m */; };
-		BBEB4442197F88B300B021EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBEB4440197F88B300B021EC /* Main.storyboard */; };
+		BBEB4442197F88B300B021EC /* SampleApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBEB4440197F88B300B021EC /* SampleApp.storyboard */; };
 		BBEB4447197F88B300B021EC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBEB4446197F88B300B021EC /* Images.xcassets */; };
 		BBEB4466197F8CF100B021EC /* Sample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BBEB4464197F8CF100B021EC /* Sample.xcdatamodeld */; };
 		BBEB4481197F915E00B021EC /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = BBEB4472197F915E00B021EC /* Entry.m */; };
@@ -91,7 +91,7 @@
 		BBEB443C197F88B300B021EC /* SampleCoreDataApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SampleCoreDataApp-Prefix.pch"; sourceTree = "<group>"; };
 		BBEB443D197F88B300B021EC /* TGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TGAppDelegate.h; sourceTree = "<group>"; };
 		BBEB443E197F88B300B021EC /* TGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TGAppDelegate.m; sourceTree = "<group>"; };
-		BBEB4441197F88B300B021EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BBEB4441197F88B300B021EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SampleApp.storyboard; sourceTree = "<group>"; };
 		BBEB4446197F88B300B021EC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BBEB444D197F88B400B021EC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		BBEB4465197F8CF100B021EC /* Sample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sample.xcdatamodel; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 				BBEB4463197F8CD900B021EC /* Models */,
 				BBEB443D197F88B300B021EC /* TGAppDelegate.h */,
 				BBEB443E197F88B300B021EC /* TGAppDelegate.m */,
-				BBEB4440197F88B300B021EC /* Main.storyboard */,
+				BBEB4440197F88B300B021EC /* SampleApp.storyboard */,
 				BBEB4446197F88B300B021EC /* Images.xcassets */,
 				BBEB4435197F88B300B021EC /* Supporting Files */,
 			);
@@ -404,7 +404,7 @@
 			files = (
 				BBEB4447197F88B300B021EC /* Images.xcassets in Resources */,
 				BBEB4439197F88B300B021EC /* InfoPlist.strings in Resources */,
-				BBEB4442197F88B300B021EC /* Main.storyboard in Resources */,
+				BBEB4442197F88B300B021EC /* SampleApp.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,12 +516,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		BBEB4440197F88B300B021EC /* Main.storyboard */ = {
+		BBEB4440197F88B300B021EC /* SampleApp.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BBEB4441197F88B300B021EC /* Base */,
 			);
-			name = Main.storyboard;
+			name = SampleApp.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
