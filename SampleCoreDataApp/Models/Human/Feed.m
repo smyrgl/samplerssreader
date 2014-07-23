@@ -62,24 +62,6 @@
                     }];
 }
 
-+ (void)updateAllFeedsWithCompletion:(void(^)(BOOL success, NSError *error))block {
-  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    NSProgress *syncProgress = [NSProgress progressWithTotalUnitCount:[Feed MR_countOfEntities]];
-    for (Feed *feed in [Feed MR_findAll]) {
-      [syncProgress becomeCurrentWithPendingUnitCount:1];
-      [feed updateFeedWithCompletion:^(BOOL success, NSError *error) {
-        if (success) {
-          [syncProgress resignCurrent];
-        } else {
-          if (block) {
-            block(NO, error);
-          }
-        }
-      }];
-    }
-  });
-}
-
 #pragma mark - Object Mapping
 
 + (Feed *)newFeedWithDictionary:(NSDictionary *)dictionary {

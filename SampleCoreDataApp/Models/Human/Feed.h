@@ -8,7 +8,6 @@
                     withCompletion:(void(^)(Feed *newFeed, NSError *error))block;
 
 - (void)updateFeedWithCompletion:(void(^)(BOOL success, NSError *error))block;
-+ (void)updateAllFeedsWithCompletion:(void(^)(BOOL success, NSError *error))block;
 
 - (NSDate *)lastUpdate;
 - (Entry *)latestEntry;

@@ -34,6 +34,7 @@
         <attribute name="fileSize" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="framerate" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="height" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="isDefault" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="lang" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="medium" optional="YES" attributeType="String" syncable="YES"/>
@@ -44,9 +45,9 @@
         <relationship name="entry" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Entry" inverseName="media" inverseEntity="Entry" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Feed" positionX="-63" positionY="-18" width="128" height="163"/>
         <element name="Entry" positionX="-54" positionY="-9" width="128" height="193"/>
         <element name="EntryCategory" positionX="-45" positionY="54" width="128" height="73"/>
-        <element name="Media" positionX="-36" positionY="63" width="128" height="268"/>
+        <element name="Feed" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="Media" positionX="-36" positionY="63" width="128" height="283"/>
     </elements>
 </model>

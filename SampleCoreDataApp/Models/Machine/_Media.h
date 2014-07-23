@@ -12,6 +12,7 @@ extern const struct MediaAttributes {
 	__unsafe_unretained NSString *fileSize;
 	__unsafe_unretained NSString *framerate;
 	__unsafe_unretained NSString *height;
+	__unsafe_unretained NSString *image;
 	__unsafe_unretained NSString *isDefault;
 	__unsafe_unretained NSString *lang;
 	__unsafe_unretained NSString *medium;
@@ -29,6 +30,7 @@ extern const struct MediaFetchedProperties {
 } MediaFetchedProperties;
 
 @class Entry;
+
 
 
 
@@ -147,6 +149,16 @@ extern const struct MediaFetchedProperties {
 - (void)setHeightValue:(int32_t)value_;
 
 //- (BOOL)validateHeight:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSData* image;
+
+
+
+//- (BOOL)validateImage:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -307,6 +319,12 @@ extern const struct MediaFetchedProperties {
 
 - (int32_t)primitiveHeightValue;
 - (void)setPrimitiveHeightValue:(int32_t)value_;
+
+
+
+
+- (NSData*)primitiveImage;
+- (void)setPrimitiveImage:(NSData*)value;
 
 
 

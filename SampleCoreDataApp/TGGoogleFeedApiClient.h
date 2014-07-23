@@ -12,4 +12,6 @@
 
 + (instancetype)sharedClient;
 
+- (void)updateAllFeedsWithCompletion:(void(^)(BOOL success, NSError *error))block;
+
 @end

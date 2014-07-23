@@ -12,6 +12,7 @@
 #import <TDBadgedCell/TDBadgedCell.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "TGEntriesListTableViewController.h"
+#import "TGGoogleFeedApiClient.h"
 
 @interface TGFeedListTableViewController () <NSFetchedResultsControllerDelegate, UIAlertViewDelegate>
 
@@ -54,7 +55,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
   self.selectedFeed = nil;
-  [Feed updateAllFeedsWithCompletion:nil];
+  [self performFeedRefresh];
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,7 +72,7 @@
   UIBarButtonItem *currentButton = self.navigationItem.leftBarButtonItem;
   [self.navigationItem setLeftBarButtonItem:spinnerButton animated:YES];
   typeof(self) weakSelf = self;
-  [Feed updateAllFeedsWithCompletion:^(BOOL success, NSError *error) {
+  [[TGGoogleFeedApiClient sharedClient] updateAllFeedsWithCompletion:^(BOOL success, NSError *error) {
     dispatch_async(dispatch_get_main_queue(), ^{
       [activityView stopAnimating];
       [weakSelf.navigationItem setLeftBarButtonItem:currentButton animated:YES];
@@ -147,8 +148,11 @@
 
 #pragma mark - Fetched Results Controller Delegate
 
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath
-     forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath
 {
   if (type == NSFetchedResultsChangeInsert) {
     if ([self.insertedSectionIndexes containsIndex:newIndexPath.section]) {

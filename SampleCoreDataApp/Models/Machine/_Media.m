@@ -11,6 +11,7 @@ const struct MediaAttributes MediaAttributes = {
 	.fileSize = @"fileSize",
 	.framerate = @"framerate",
 	.height = @"height",
+	.image = @"image",
 	.isDefault = @"isDefault",
 	.lang = @"lang",
 	.medium = @"medium",
@@ -263,6 +264,13 @@ const struct MediaFetchedProperties MediaFetchedProperties = {
 - (void)setPrimitiveHeightValue:(int32_t)value_ {
 	[self setPrimitiveHeight:[NSNumber numberWithInt:value_]];
 }
+
+
+
+
+
+@dynamic image;
+
 
 
 

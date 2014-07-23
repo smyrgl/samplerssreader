@@ -8,6 +8,7 @@
 
 #import "TGContentViewController.h"
 #import "Entry.h"
+#import "Feed.h"
 
 @interface TGContentViewController ()
 
@@ -26,8 +27,7 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+  [super viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning
